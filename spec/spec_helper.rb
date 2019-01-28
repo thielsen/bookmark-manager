@@ -5,7 +5,7 @@ require './app'
 
 ENV['RACK_ENV'] = 'test'
 
-Capybara.app = Bookmark
+Capybara.app = App
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
