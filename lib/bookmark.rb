@@ -2,19 +2,28 @@ require 'pg'
 
 class Bookmark
 
+  attr_reader :id, :title, :url
+
+  def initialize(id, title, url)
+    @id = id
+    @title = title
+    @url = url
+  end
+
+
   def self.all
     connect_db
     @rows = @db.exec "SELECT * FROM bookmarks;"
-    @urls = []
+    @list = []
     @rows.each do |row|
-      @urls << row['url']
+      @list << Bookmark.new(row['id'], row['title'], row['url'])
     end
-    @urls
+    @list
   end
 
-  def self.add(new_bookmark)
+  def self.add(title, new_bookmark)
     connect_db
-    @db.exec "INSERT INTO bookmarks (url) VALUES (\'#{new_bookmark}\');"
+    @db.exec "INSERT INTO bookmarks (url, title) VALUES (\'#{new_bookmark}\', \'#{title}\');"
   end
 
   private

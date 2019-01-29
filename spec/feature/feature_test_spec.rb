@@ -12,14 +12,15 @@ RSpec.describe App do
 
   scenario 'confirms we can view bookmarks' do
     visit('/bookmarks')
-    expect(page).to have_content("[\"http://www.askjeeves.com\", \"http://www.twitter.com\", \"http://www.google.com\"]")
+    expect(page).to have_content("Ask Jeeves")
   end
 
   scenario 'confirm we can add a bookmark' do
     visit('/bookmarks')
+    fill_in "title", :with => "BBC"
     fill_in "new_bookmark", :with => "http://www.bbc.co.uk"
     click_button 'Add'
-    expect(page).to have_content("[\"http://www.askjeeves.com\", \"http://www.twitter.com\", \"http://www.google.com\", \"http://www.bbc.co.uk\"]")
+    expect(page).to have_content("BBC")
   end
 
 end

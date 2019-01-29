@@ -5,15 +5,15 @@ describe Bookmark do
     before(:each) do
       test_db_configure
     end
-    
+
     it 'returns all bookmarks' do
-      expect(Bookmark.all).to include('http://www.askjeeves.com')
-      expect(Bookmark.all).to include('http://www.twitter.com')
+      expect(Bookmark.all[0].title).to include('Ask Jeeves')
+      expect(Bookmark.all[1].title).to include('Twitter')
     end
 
     it 'adds a bookmark' do
-      Bookmark.add('http://www.dog.com')
-      expect(Bookmark.all).to include('http://www.dog.com')
+      Bookmark.add('DOG', 'http://www.dog.com')
+      expect(Bookmark.all[3].title).to include('DOG')
     end
 
   end

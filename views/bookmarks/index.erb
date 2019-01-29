@@ -1,8 +1,12 @@
 <form action="/add" method="post">
   <div>
-    <input type="text" name="new_bookmark">
+    Title: <input type="text" name="title">
+    Bookmark: <input type="text" name="new_bookmark">
     <input type="submit" value="Add">
   </div>
 </form>
 
-<%= @bookmarks %>
+
+<% @bookmarks.each do |object| %><br>
+<%= "<a href='#{object.url}'>#{object.title}</a><br>" %>
+<% end %>
