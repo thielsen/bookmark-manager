@@ -2,8 +2,10 @@ require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 require './app'
+require 'web_helpers'
 
 ENV['RACK_ENV'] = 'test'
+ENV['DB'] = 'bookmark_manager_test'
 
 Capybara.app = App
 

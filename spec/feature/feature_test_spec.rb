@@ -1,6 +1,9 @@
 require './app'
 
 RSpec.describe App do
+  before(:each) do
+    test_db_configure
+  end
 
   scenario 'confirms home page is working' do
     visit('/')
@@ -9,7 +12,7 @@ RSpec.describe App do
 
   scenario 'confirms we can view bookmarks' do
     visit('/bookmarks')
-    expect(page).to have_content(["http://www.makersacademy.com", "http://www.google.com", "http://destroyallsoftware.com"])
+    expect(page).to have_content("[\"http://www.askjeeves.com\", \"http://www.twitter.com\", \"http://www.google.com\"]")
   end
 
 end
