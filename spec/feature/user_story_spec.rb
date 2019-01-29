@@ -19,6 +19,12 @@
 # I want to add a new bookmark
 # ```
 
+# ```
+# As a angry, frustrated worker,
+# So I can remove evil bookmarks,
+# I want to delete a bookmark
+# ```
+
 
 
 

@@ -10,7 +10,6 @@ class Bookmark
     @url = url
   end
 
-
   def self.all
     connect_db
     @rows = @db.exec "SELECT * FROM bookmarks;"
@@ -23,7 +22,12 @@ class Bookmark
 
   def self.add(title, new_bookmark)
     connect_db
-    @db.exec "INSERT INTO bookmarks (url, title) VALUES (\'#{new_bookmark}\', \'#{title}\');"
+    @db.exec "INSERT INTO bookmarks (url, title) VALUES ('#{new_bookmark}', '#{title}');"
+  end
+
+  def self.delete(title)
+    connect_db
+    @db.exec "DELETE FROM bookmarks WHERE title = '#{title}';"
   end
 
   private

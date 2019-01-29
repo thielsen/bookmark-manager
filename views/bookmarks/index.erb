@@ -10,3 +10,10 @@
 <% @bookmarks.each do |object| %><br>
 <%= "<a href='#{object.url}'>#{object.title}</a><br>" %>
 <% end %>
+
+<form action="/delete" method="post">
+  <div>
+    Title to delete: <input type="text" name="title_delete">
+    <input type="submit" value="Delete">
+  </div>
+</form>

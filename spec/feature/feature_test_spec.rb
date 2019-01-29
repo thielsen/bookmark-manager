@@ -23,4 +23,13 @@ RSpec.describe App do
     expect(page).to have_content("BBC")
   end
 
+  scenario 'confirm we can delete a bookmark' do
+    visit('/bookmarks')
+    fill_in "title", :with => "BBC"
+    fill_in "new_bookmark", :with => "http://www.bbc.co.uk"
+    fill_in "title_delete", :with => "BBC"
+    click_button 'Delete'
+    expect(page).to_not have_content("BBC")
+  end
+
 end
